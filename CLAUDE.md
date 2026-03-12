@@ -21,7 +21,8 @@ hypotheses/    Falsifiable hypotheses under investigation
 They must be specific, falsifiable, and consequential.
 
 **Docs** are keyed to Opportunities from the OST:
-- [Opportunity_Solution_Tree_Interview_Updated.docx.md](docs/Opportunity_Solution_Tree_Interview_Updated.docx.md) — the master OST with interview signal annotations
+- [Opportunity_Solution_Tree.md](docs/Opportunity_Solution_Tree.md) — **master OST v2.0**, synthesised from Miro problem-space review + primary interview data
+- [Opportunity_Solution_Tree_Interview_Updated.docx.md](docs/Opportunity_Solution_Tree_Interview_Updated.docx.md) — earlier OST version with interview signal annotations (superseded by v2.0)
 - [MVP_Requirements_Opportunity1.docx.md](docs/MVP_Requirements_Opportunity1.docx.md) — feature requirements for Opportunity 1 (The Knowledge Gap), Wizard-of-Oz v1
 - [Concept_Brief_Opportunity1.md](docs/Concept_Brief_Opportunity1.md) — concept brief for Solution A (Personalised Neighbourhood Matching), derived from the OST and MVP requirements
 

@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(git add hypotheses/)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "WebSearch"
     ]
   }
 }
