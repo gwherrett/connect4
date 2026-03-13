@@ -74,7 +74,7 @@ function LandingSidePanel() {
 
       <div className="border-t border-neutral-700 pt-8">
         <p className="font-body text-sm text-neutral-400 leading-relaxed">
-          Every neighbourhood in Vancouver has a personality. The quiz figures out which one matches yours.
+          Every neighbourhood in Vancouver has a distinct personality. Ten minutes of questions. One match that fits how you actually live.
         </p>
       </div>
     </div>

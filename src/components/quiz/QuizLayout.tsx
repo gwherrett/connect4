@@ -17,16 +17,16 @@ interface QuizLayoutProps {
 }
 
 const PHASE_CONTEXT: Record<number, { headline: string; body: string }> = {
-  1:  { headline: "Why you're here matters", body: "Your reason for moving shapes what a neighbourhood needs to offer. Someone arriving for work needs different things than someone choosing Vancouver for the lifestyle." },
-  2:  { headline: "Practicalities first", body: "Timeline, household, bedrooms, and budget are the hard constraints. We use these to filter out neighbourhoods that simply won't work before we get to fit." },
-  4:  { headline: "Practicalities first", body: "Vancouver has significant rent variation by neighbourhood. Budget helps us filter out places where the median rent would stretch you past your comfort zone." },
-  6:  { headline: "How you move shapes where you live", body: "Transport mode fundamentally changes which neighbourhoods work. SkyTrain proximity is critical for transit users. Walkers need density. Car owners have more flexibility." },
-  7:  { headline: "Your lifestyle, not your commute", body: "How you spend a free day tells us more about neighbourhood fit than where you work. The texture of daily life is the thing that's hardest to change once you're settled." },
-  8:  { headline: "The energy you come home to", body: "This is one of our highest-signal questions. The energy of a neighbourhood is the thing that's hardest to change and easiest to get wrong. We weight your answer heavily." },
-  10: { headline: "What comfort actually means", body: "For some it's personal safety, for others it's knowing your neighbours, for others it's feeling seen. Your answer adjusts how we weight safety, quietness, and cultural diversity." },
-  11: { headline: "Where you're from tells us a lot", body: "The neighbourhood you know shapes what feels normal and what feels like home. We use this to find analogues — Vancouver places with a similar texture to where you've lived." },
-  12: { headline: "Describe it honestly", body: "Don't hold back. The detail is what helps us find a match. Texture, feel, energy — these matter more than amenity lists." },
-  13: { headline: "A place that just felt right", body: "Your favourite neighbourhood anywhere in the world is a strong signal. We're looking for what it has that other places don't — and finding that in Vancouver." },
+  1:  { headline: "Why you're here matters", body: "Your reason for moving shapes what a neighbourhood needs to give you. Work, school, family, lifestyle — each one points somewhere different." },
+  2:  { headline: "Practicalities first", body: "Timeline, household, bedrooms, budget. These tell us what has to be true before anything else matters." },
+  4:  { headline: "Practicalities first", body: "Rent in Vancouver varies a lot by neighbourhood. Budget tells us which places are actually viable — not just technically possible." },
+  6:  { headline: "How you get around shapes the whole map", body: "On transit, you need the SkyTrain close. Walking, you need density. A car gives you more range — but you're still choosing a home base." },
+  7:  { headline: "Your lifestyle, not your commute", body: "How you spend a free day tells us more than your commute does. The rhythm of a neighbourhood — what's open, who's around, what there is to do — that's the thing that's hardest to change once you're in." },
+  8:  { headline: "The energy you come home to", body: "The energy of a neighbourhood is the thing that's hardest to change and easiest to get wrong. It's also the hardest to research. Your answer here matters more than most." },
+  10: { headline: "What comfort actually means", body: "Comfort means different things to different people. For some it's personal safety. For others it's knowing your neighbours, or feeling welcome as you are. Your answer shifts what we look for." },
+  11: { headline: "Where you're from tells us a lot", body: "The neighbourhood you know shapes what feels normal. We use this to find Vancouver places with a similar feel — so your match isn't just a list of features, it's something you'd recognise." },
+  12: { headline: "Describe it honestly", body: "Don't hold back. The more specific you are, the better the match. Texture, feel, energy — these tell us more than any amenity list." },
+  13: { headline: "A place that just felt right", body: "A place you loved tells us something no checklist can. We're looking for what made it feel right — and finding where that exists in Vancouver." },
   14: { headline: "What makes it yours", body: "Energy, texture, the kind of people. The thing that's hard to put into words is exactly what we're trying to find." },
 }
 

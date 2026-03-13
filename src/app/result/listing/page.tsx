@@ -68,7 +68,7 @@ export default function ListingPage() {
           Before you reply
         </p>
         <p className="font-body text-sm text-neutral-300 leading-relaxed mb-4">
-          Listings priced below market, available immediately, and described as renovated are the most common pattern in phantom rental scams targeting newcomers.
+          Listings priced below market, available immediately, described as renovated — that combination is the most common pattern in rental scams targeting newcomers in Vancouver. The next step is usually a deposit request before you&apos;ve seen the place.
         </p>
         <button
           type="button"

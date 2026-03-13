@@ -73,16 +73,16 @@ export default function LoadingPage() {
       </p>
       <div className="space-y-6">
         <div>
-          <p className="font-display text-lg font-bold text-white mb-1">Reading your descriptions</p>
-          <p className="font-body text-sm text-neutral-400 leading-relaxed">Your free-text answers about where you live and what you love are matched against neighbourhood personality profiles.</p>
+          <p className="font-display text-lg font-bold text-white mb-1">Reading what you wrote</p>
+          <p className="font-body text-sm text-neutral-400 leading-relaxed">Your descriptions of where you live and what you love are compared against detailed profiles of each Vancouver neighbourhood.</p>
         </div>
         <div>
-          <p className="font-display text-lg font-bold text-white mb-1">Applying your constraints</p>
-          <p className="font-body text-sm text-neutral-400 leading-relaxed">Budget, bedrooms, transport, and timeline filter the field before the personality match runs.</p>
+          <p className="font-display text-lg font-bold text-white mb-1">Applying the hard limits</p>
+          <p className="font-body text-sm text-neutral-400 leading-relaxed">Budget, bedrooms, transport, timeline — these cut the list down to what&apos;s actually viable before we look at fit.</p>
         </div>
         <div>
-          <p className="font-display text-lg font-bold text-white mb-1">Finding the analogue</p>
-          <p className="font-body text-sm text-neutral-400 leading-relaxed">We look for a Vancouver neighbourhood with a similar texture to the places you described — not just similar amenities.</p>
+          <p className="font-display text-lg font-bold text-white mb-1">Finding the match</p>
+          <p className="font-body text-sm text-neutral-400 leading-relaxed">We look for a Vancouver neighbourhood with a similar feel to the places you described — not just similar amenities, but similar life.</p>
         </div>
       </div>
     </div>
