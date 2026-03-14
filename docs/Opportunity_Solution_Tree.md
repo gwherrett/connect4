@@ -280,6 +280,10 @@ A neighbourhood matching tool that synthesises lived-experience data (safety per
 
 **Interview signal:** Highest demand. Both Reza and Chris stated they would have used this. AI trust condition: must show reasoning, must be grounded in lived experience not statistics.
 
+**Matching algorithm — two variants:**
+- **Variant 1 (Weighted Scoring):** Quiz answers adjust attribute weights against hand-crafted neighbourhood scores. Deterministic, no external dependencies, suited to A/B testing. Current prototype approach. See [Concept_Brief_Opportunity1.md](Concept_Brief_Opportunity1.md).
+- **Variant 2 (Semantic):** Neighbourhood descriptions embedded as vectors; quiz output (including open-ended text) converted to a query; LLM returns ranked recommendations with plain-language rationale grounded in source text. Post-MVP — triggered when open-ended quiz fields are added or Variant 1 shows poor discrimination. See [Concept_Brief_SemanticMatching.md](Concept_Brief_SemanticMatching.md).
+
 ---
 
 ### Solution B — Scam Shield + Rights Navigator *(Secondary solution — trust foundation)*
