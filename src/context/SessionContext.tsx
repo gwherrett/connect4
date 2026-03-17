@@ -13,7 +13,7 @@ import type {
   ListingObject,
   CardVersion,
 } from '@/types'
-import { computeMatch, computeTopMatches } from '@/lib/matching'
+import { computeTopMatches, computeDisplayScores } from '@/lib/matching'
 import neighbourhoodsData from '@/data/neighbourhoods.json'
 
 const neighbourhoods = neighbourhoodsData as unknown as Neighbourhood[]
@@ -63,7 +63,7 @@ const INITIAL_STATE: SessionState = {
 interface SessionContextValue {
   state:                SessionState
   setAnswer:            (field: keyof SessionState, value: unknown) => void
-  runMatching:          () => void
+  runMatching:          () => Promise<void>
   resetSession:         () => void
   // Derived
   isQuizComplete:       boolean
@@ -85,9 +85,40 @@ export function SessionProvider({ children }: { children: ReactNode }) {
     setState((prev) => ({ ...prev, [field]: value }))
   }
 
-  const runMatching = () => {
-    const id = computeMatch(state, neighbourhoods)
-    setState((prev) => ({ ...prev, matchedNeighbourhoodId: id }))
+  const runMatching = async () => {
+    // Structural match (always works)
+    const structuralScores = computeDisplayScores(state, neighbourhoods)
+
+    // Try semantic match
+    const userText = [state.favouriteDescription, state.favouriteNeighbourhood, state.favouriteCity]
+      .filter(Boolean).join('. ')
+
+    let semanticScores: Record<string, number> = {}
+    if (userText.trim()) {
+      try {
+        const res = await fetch('/api/match', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ text: userText }),
+        })
+        if (res.ok) {
+          const data = await res.json() as { semanticScores?: Record<string, number> }
+          semanticScores = data.semanticScores ?? {}
+        }
+      } catch { /* fallback to structural only */ }
+    }
+
+    // Blend scores (70% structural, 30% semantic)
+    const hasSemantic = Object.keys(semanticScores).length > 0
+    const blendedScores = neighbourhoods.map((n) => ({
+      id: n.id,
+      score: hasSemantic
+        ? (structuralScores[n.id] ?? 0) * 0.7 + (semanticScores[n.id] ?? 50) * 0.3
+        : (structuralScores[n.id] ?? 0),
+    }))
+
+    const best = blendedScores.reduce((a, b) => b.score > a.score ? b : a)
+    setState((prev) => ({ ...prev, matchedNeighbourhoodId: best.id }))
   }
 
   const resetSession = () => {

@@ -26,7 +26,7 @@ export const en = {
       whyWeAskClosed: '+ Why we ask',
       phase1Label: 'Phase 1 — Practicalities',
       phase2Label: 'Phase 2 — Your Lifestyle',
-      phase3Label: "Phase 3 — Where You're From",
+      phase3Label: 'Phase 3 — Place Memory',
       phase4Label: 'Phase 4 — Your Favourite Place',
     },
     q1: {
@@ -152,6 +152,7 @@ export const en = {
         'community-feel': 'Community feel — neighbours who look out for each other',
         'quiet-decompress': 'Quiet and low-key — I need to decompress at home',
         'diversity-inclusion': 'Diversity and inclusion — I want to feel welcome as I am',
+        'grit-character': "I'm drawn to lived-in, working neighbourhoods — a bit of grit is part of the character",
       },
       whyWeAsk:
         "Comfort means different things to different people. For some it's personal safety, for others it's knowing your neighbours, for others it's feeling seen. Your answer adjusts how we weight safety, quietness, and cultural diversity.",
@@ -178,6 +179,8 @@ export const en = {
     q13: {
       phase4Card:
         "Now tell us about a place you've loved — anywhere in the world. This tells us what home feels like to you.",
+      phase3Card:
+        "Last question. Tell us about a neighbourhood anywhere in the world that just felt right — this is the most interesting thing you can tell us.",
       question: 'Is there a neighbourhood anywhere in the world that just felt right — like it was made for you?',
       cityLabel: 'City',
       cityOptional: '(optional)',
@@ -189,6 +192,7 @@ export const en = {
     },
     q14: {
       question: "What makes it your favourite? What does it have that other places don't?",
+      descriptionLabel: 'What makes it feel right?',
       placeholder:
         "e.g. The energy. Everyone's out on the street. Takes itself seriously without being precious. Good food everywhere.",
     },

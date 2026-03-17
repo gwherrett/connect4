@@ -155,6 +155,11 @@ function applyWeightAdjustments(session: SessionState): AttributeWeights {
       w.culturalDiversity += 2
       w.safetyPerception += 1
       break
+    case 'grit-character':
+      w.safetyPerception -= 1
+      w.culturalDiversity += 1
+      w.socialEnergy += 1
+      break
     // 'other': no adjustment
   }
 
@@ -282,12 +287,16 @@ export function computeDisplayScores(
            + applyRawBonuses(n, session),
   }))
 
-  const maxScore = Math.max(...rawScores.map((s) => s.score))
+  // Theoretical max: every attribute at score 10 × its weight (no negatives)
+  const theoreticalMax = Object.values(weights).reduce(
+    (sum, w) => sum + Math.max(w, 0) * 10,
+    0
+  )
 
   return Object.fromEntries(
     rawScores.map(({ id, score }) => [
       id,
-      Math.round((score / maxScore) * 100),
+      Math.round(Math.max(0, Math.min(99, (score / theoreticalMax) * 100))),
     ])
   )
 }
@@ -312,11 +321,14 @@ export function computeTopMatches(
     }))
     .sort((a, b) => b.raw - a.raw)
 
-  const maxRaw = scored[0]?.raw ?? 1
-
+  // Theoretical max: every attribute at score 10 × its weight (no negatives)
+  const theoreticalMax = Object.values(weights).reduce(
+    (sum, w) => sum + Math.max(w, 0) * 10,
+    0
+  )
   return scored.slice(0, n).map(({ neighbourhood, raw }) => ({
     neighbourhood,
-    score: Math.round((raw / maxRaw) * 100),
+    score: Math.round(Math.max(0, Math.min(99, (raw / theoreticalMax) * 100))),
   }))
 }
 

@@ -133,6 +133,7 @@ export type ComfortPriority =
   | 'community-feel'
   | 'quiet-decompress'
   | 'diversity-inclusion'
+  | 'grit-character'
   | 'other'
 
 export type CardVersion = 'A' | 'B' | 'C'

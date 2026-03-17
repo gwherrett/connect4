@@ -9,7 +9,7 @@ interface ContinueButtonProps {
 }
 
 export function ContinueButton({ step, disabled, onClick }: ContinueButtonProps) {
-  const label = step === 15 ? 'See my match →' : 'Continue →'
+  const label = step === 11 ? 'See my match →' : 'Continue →'
 
   return (
     <Button
