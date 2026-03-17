@@ -4,9 +4,12 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useSession } from '@/context/SessionContext'
 import { NeighbourhoodMatchCard } from '@/components/result/NeighbourhoodMatchCard'
+import { MatchSignalPills } from '@/components/result/MatchSignalPills'
+import { SecondaryMatchCard } from '@/components/result/SecondaryMatchCard'
 import { SaveBottomSheet } from '@/components/modals/SaveBottomSheet'
 import { SidePanelLayout } from '@/components/layout/SidePanelLayout'
 import { Button } from '@/components/ui/Button'
+import { computeMatchSignals } from '@/lib/matching'
 import { en, t } from '@/locales/en'
 import type { Neighbourhood } from '@/types'
 
@@ -32,16 +35,18 @@ function getAnalogousText(
 
 export default function ResultPage() {
   const router = useRouter()
-  const { matchedNeighbourhood, state, resetSession } = useSession()
+  const { matchedNeighbourhood, state, resetSession, topMatches } = useSession()
   const [saveOpen, setSaveOpen] = useState(false)
 
   if (!matchedNeighbourhood) {
-    // No match yet — send back to start
     if (typeof window !== 'undefined') router.replace('/quiz/1')
     return null
   }
 
-  const analogousText = getAnalogousText(
+  const winnerScore    = topMatches[0]?.score ?? 100
+  const runnerUps      = topMatches.slice(1)
+  const winnerSignals  = computeMatchSignals(state, matchedNeighbourhood)
+  const analogousText  = getAnalogousText(
     matchedNeighbourhood,
     state.currentCity,
     state.currentNeighbourhood
@@ -50,20 +55,24 @@ export default function ResultPage() {
   const main = (
     <div className="min-h-screen bg-neutral-50">
       <div className="max-w-lg mx-auto px-5 py-8">
-        {/* Match label */}
-        <p className="font-body text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-3">
-          {en.result.matchLabel}
-        </p>
 
-        {/* Match card */}
+        {/* Primary match card */}
         <NeighbourhoodMatchCard
           neighbourhood={matchedNeighbourhood}
-          score={100}
+          score={winnerScore}
           version={state.cardVersion}
           analogousText={analogousText}
         />
 
-        {/* Actions — visible on mobile only; desktop uses side panel */}
+        {/* Match/gap pills for primary */}
+        <div className="mt-5">
+          <MatchSignalPills
+            matches={winnerSignals.matches}
+            gaps={winnerSignals.gaps}
+          />
+        </div>
+
+        {/* Actions — mobile only */}
         <div className="mt-6 space-y-3 lg:hidden">
           <Button
             variant="primary"
@@ -72,7 +81,6 @@ export default function ResultPage() {
           >
             {t('result.rentalEntry', { neighbourhood: matchedNeighbourhood.name })}
           </Button>
-
           <Button
             variant="secondary"
             fullWidth
@@ -80,7 +88,6 @@ export default function ResultPage() {
           >
             {en.result.saveButton}
           </Button>
-
           <button
             type="button"
             onClick={() => { resetSession(); router.push('/') }}
@@ -89,8 +96,31 @@ export default function ResultPage() {
             {en.result.startAgain}
           </button>
         </div>
-      </div>
 
+        {/* Secondary matches */}
+        {runnerUps.length > 0 && (
+          <div className="mt-10">
+            <p className="font-body text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-4">
+              {en.result.alsoConsider}
+            </p>
+            <div className="space-y-4">
+              {runnerUps.map(({ neighbourhood, score }) => {
+                const signals = computeMatchSignals(state, neighbourhood)
+                return (
+                  <SecondaryMatchCard
+                    key={neighbourhood.id}
+                    neighbourhood={neighbourhood}
+                    score={score}
+                    matches={signals.matches}
+                    gaps={signals.gaps}
+                  />
+                )
+              })}
+            </div>
+          </div>
+        )}
+
+      </div>
     </div>
   )
 
@@ -98,14 +128,15 @@ export default function ResultPage() {
     <div className="flex flex-col justify-between h-full px-10 py-12">
       <div>
         <p className="font-body text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-3">
-          Your match
+          {en.result.matchLabel}
         </p>
         <h2 className="font-display text-3xl font-bold text-white leading-tight mb-1">
           {matchedNeighbourhood.name}
         </h2>
-        <p className="font-display italic text-primary-400 text-lg mb-8">
+        <p className="font-display italic text-primary-400 text-lg mb-1">
           {matchedNeighbourhood.tagline}
         </p>
+        <p className="font-mono text-2xl text-white mb-8">{winnerScore}%</p>
 
         <div className="space-y-3">
           <Button

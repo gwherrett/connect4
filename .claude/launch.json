@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Threshold",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["/Users/thisisme/Desktop/ProductBC buildathon/connect4-geoff/.claude/start-dev.sh"],
+      "autoPort": true
+    }
+  ]
+}

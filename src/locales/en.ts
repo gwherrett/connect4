@@ -1,6 +1,6 @@
 export const en = {
   landing: {
-    productLabel: 'NEIGHBOURHOOD FIT TOOL · VANCOUVER',
+    productLabel: 'APT · NEIGHBOURHOOD FIT TOOL · VANCOUVER',
     headline1: 'Find the neighbourhood',
     headline2: 'that fits who you are.',
     body: "Tell us who you are. We'll help you find somewhere that feels like it was waiting for you.",
@@ -176,7 +176,7 @@ export const en = {
     },
     q13: {
       phase4Card:
-        "One more set of questions. This one's about a place you love — anywhere in the world. It doesn't have to be where you live now.",
+        "Now tell us about a place you've loved — anywhere in the world. This tells us what home feels like to you.",
       question: 'Is there a neighbourhood anywhere in the world that just felt right — like it was made for you?',
       cityLabel: 'City',
       cityOptional: '(optional)',
@@ -206,6 +206,9 @@ export const en = {
 
   result: {
     matchLabel: 'YOUR MATCH',
+    matchPillsLabel: 'WHERE IT MATCHES',
+    gapPillsLabel: "WHERE IT DOESN'T QUITE FIT",
+    alsoConsider: 'Also worth exploring',
     worthKnowing:
       'This is a match, not a certainty. No algorithm replaces walking the streets on a Tuesday morning. Shortlist two or three and visit each before you commit.',
     saveButton: 'Save my results',
@@ -265,7 +268,7 @@ export const en = {
   },
 
   meta: {
-    title: 'Connect4 — Neighbourhood Fit Tool',
+    title: 'Apt — Find your Vancouver neighbourhood',
     description: 'Find the Vancouver neighbourhood that fits who you are.',
   },
 

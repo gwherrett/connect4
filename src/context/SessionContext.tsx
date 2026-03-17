@@ -13,7 +13,7 @@ import type {
   ListingObject,
   CardVersion,
 } from '@/types'
-import { computeMatch } from '@/lib/matching'
+import { computeMatch, computeTopMatches } from '@/lib/matching'
 import neighbourhoodsData from '@/data/neighbourhoods.json'
 
 const neighbourhoods = neighbourhoodsData as unknown as Neighbourhood[]
@@ -69,6 +69,7 @@ interface SessionContextValue {
   isQuizComplete:       boolean
   matchedNeighbourhood: Neighbourhood | null
   selectedListing:      ListingObject | null
+  topMatches:           Array<{ neighbourhood: Neighbourhood; score: number }>
 }
 
 // ─── Context ──────────────────────────────────────────────────────────────────
@@ -111,6 +112,12 @@ export function SessionProvider({ children }: { children: ReactNode }) {
     ? (neighbourhoods.find((n) => n.id === state.matchedNeighbourhoodId) ?? null)
     : null
 
+  const topMatches = useMemo(
+    () => state.matchedNeighbourhoodId ? computeTopMatches(state, neighbourhoods, 3) : [],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [state]
+  )
+
   const selectedListing: ListingObject | null = (() => {
     if (!matchedNeighbourhood || !state.bedrooms) return null
     const key =
@@ -129,6 +136,7 @@ export function SessionProvider({ children }: { children: ReactNode }) {
       isQuizComplete,
       matchedNeighbourhood,
       selectedListing,
+      topMatches,
     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [state]
