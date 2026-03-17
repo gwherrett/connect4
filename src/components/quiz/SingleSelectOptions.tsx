@@ -46,8 +46,8 @@ export function SingleSelectOptions({
             className={[
               'w-full py-3 px-4 rounded-md border text-sm font-body text-left transition-colors duration-150',
               selected
-                ? 'bg-neutral-900 border-neutral-900 text-white'
-                : 'bg-white border-neutral-200 text-neutral-900 hover:bg-neutral-50',
+                ? 'bg-apt-dark border-apt-dark text-apt-cream'
+                : 'bg-apt-cream border-apt-mid/20 text-apt-dark hover:bg-apt-terra-tint',
             ].join(' ')}
             aria-pressed={selected}
           >

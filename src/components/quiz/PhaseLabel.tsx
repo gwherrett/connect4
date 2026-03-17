@@ -18,7 +18,7 @@ export function PhaseLabel({ step }: PhaseLabelProps) {
   const label = en.quiz.shared[key] as string
 
   return (
-    <span className="inline-block bg-primary-500 text-white text-xs font-body font-semibold uppercase tracking-widest px-2 py-0.5 rounded-sm">
+    <span className="inline-block bg-apt-lime-tint text-apt-terra text-xs font-body font-semibold uppercase tracking-widest px-3 py-1 rounded-full">
       {label}
     </span>
   )

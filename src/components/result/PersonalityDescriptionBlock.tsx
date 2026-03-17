@@ -7,10 +7,10 @@ interface PersonalityDescriptionBlockProps {
 export function PersonalityDescriptionBlock({ text }: PersonalityDescriptionBlockProps) {
   return (
     <div>
-      <p className="text-xs font-body font-semibold tracking-widest text-neutral-400 uppercase mb-2">
+      <p className="text-xs font-body font-semibold tracking-widest text-apt-mid uppercase mb-2">
         {en.result.whatItsLike}
       </p>
-      <p className="font-body text-sm text-neutral-700 leading-relaxed">{text}</p>
+      <p className="font-body text-sm text-apt-dark leading-relaxed">{text}</p>
     </div>
   )
 }

@@ -35,18 +35,18 @@ function QuizSidePanel({ pip }: { pip: number }) {
   return (
     <div className="flex flex-col justify-between h-full px-10 py-12">
       <div>
-        <p className="font-body text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-8">
+        <p className="font-body text-xs font-semibold tracking-widest text-apt-mid uppercase mb-8">
           Why we ask
         </p>
-        <h2 className="font-display text-2xl font-bold text-white leading-snug mb-4">
+        <h2 className="font-display text-2xl font-bold text-apt-cream leading-snug mb-4">
           {ctx.headline}
         </h2>
-        <p className="font-body text-sm text-neutral-300 leading-relaxed">
+        <p className="font-body text-sm text-apt-mid leading-relaxed">
           {ctx.body}
         </p>
       </div>
 
-      <div className="border-t border-neutral-700 pt-8">
+      <div className="border-t border-apt-mid pt-8">
         <div className="flex gap-1 flex-wrap">
           {[1,2,3,4].map((phase) => {
             const active =
@@ -58,8 +58,8 @@ function QuizSidePanel({ pip }: { pip: number }) {
               <span
                 key={phase}
                 className={[
-                  'font-body text-xs font-semibold tracking-widest uppercase px-2 py-0.5 rounded-sm',
-                  active ? 'bg-primary-500 text-white' : 'bg-neutral-700 text-neutral-400',
+                  'font-body text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full',
+                  active ? 'bg-apt-lime-tint text-apt-terra' : 'bg-apt-dark/40 text-apt-mid',
                 ].join(' ')}
               >
                 Phase {phase}
@@ -76,14 +76,14 @@ function QuizMain({
   step, pip, continueDisabled, onContinue, onBack, children,
 }: QuizLayoutProps) {
   return (
-    <div className="min-h-screen bg-neutral-50 flex flex-col">
+    <div className="min-h-screen bg-apt-cream flex flex-col">
       {/* Top bar */}
       <div className="px-5 pt-5 pb-3 flex flex-col gap-3">
         <div className="flex items-center justify-between">
           <button
             type="button"
             onClick={onBack}
-            className="text-sm font-body text-neutral-500 hover:text-neutral-800 transition-colors"
+            className="text-sm font-body text-apt-mid hover:text-apt-dark transition-colors"
             aria-label={en.quiz.shared.backAriaLabel}
           >
             {en.quiz.shared.back}

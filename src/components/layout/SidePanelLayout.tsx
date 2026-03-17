@@ -14,7 +14,7 @@ interface SidePanelLayoutProps {
  */
 export function SidePanelLayout({ main, side, sideClassName }: SidePanelLayoutProps) {
   return (
-    <div className="min-h-screen bg-neutral-50 lg:grid lg:grid-cols-2 lg:min-h-0">
+    <div className="min-h-screen bg-apt-cream lg:grid lg:grid-cols-2 lg:min-h-0">
       {/* Left — main content */}
       <div className="min-h-screen lg:min-h-screen lg:overflow-y-auto">
         {main}
@@ -24,7 +24,7 @@ export function SidePanelLayout({ main, side, sideClassName }: SidePanelLayoutPr
       <div
         className={[
           'hidden lg:flex lg:flex-col lg:sticky lg:top-0 lg:h-screen',
-          'bg-neutral-900 text-white overflow-hidden',
+          'bg-apt-dark text-apt-cream overflow-hidden',
           sideClassName ?? '',
         ].join(' ')}
       >

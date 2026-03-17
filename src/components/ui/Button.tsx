@@ -15,19 +15,19 @@ interface ButtonProps {
 
 const variantClasses: Record<ButtonProps['variant'], string> = {
   primary:
-    'bg-primary-500 text-white hover:bg-primary-700 disabled:bg-neutral-100 disabled:text-neutral-300',
+    'bg-apt-terra text-apt-cream hover:bg-apt-dark disabled:bg-apt-mid/30 disabled:text-apt-cream/50',
   secondary:
-    'bg-white text-neutral-900 border border-neutral-200 hover:bg-neutral-50 disabled:text-neutral-300 disabled:border-neutral-100',
+    'bg-apt-cream text-apt-dark border border-apt-mid/20 hover:bg-apt-terra-tint disabled:text-apt-mid/50 disabled:border-apt-mid/10',
   ghost:
-    'bg-transparent text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50 disabled:text-neutral-300',
+    'bg-transparent text-apt-mid hover:text-apt-dark hover:bg-apt-terra-tint disabled:text-apt-mid/50',
   danger:
     'bg-error-500 text-white hover:opacity-90 disabled:opacity-40',
 }
 
 const sizeClasses: Record<NonNullable<ButtonProps['size']>, string> = {
-  sm: 'text-sm px-3 py-2 rounded-sm',
-  md: 'text-sm px-4 py-3 rounded-md',
-  lg: 'text-base px-6 py-4 rounded-md',
+  sm: 'text-sm px-3 py-2 rounded-btn',
+  md: 'text-sm px-6 py-3 rounded-btn',
+  lg: 'text-base px-6 py-4 rounded-btn',
 }
 
 export function Button({
@@ -46,7 +46,7 @@ export function Button({
       disabled={disabled}
       onClick={onClick}
       className={[
-        'inline-flex items-center justify-center font-body font-semibold transition-colors duration-150',
+        'inline-flex items-center justify-center font-body font-medium transition-colors duration-150',
         'disabled:cursor-not-allowed',
         variantClasses[variant],
         sizeClasses[size],

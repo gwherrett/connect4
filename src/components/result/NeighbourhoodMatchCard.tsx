@@ -26,13 +26,13 @@ export function NeighbourhoodMatchCard({
     <div className="flex flex-col gap-6">
       {/* Header */}
       <div>
-        <p className="text-xs font-body font-semibold tracking-widest text-neutral-400 uppercase mb-1">
+        <p className="text-xs font-body font-semibold tracking-widest text-apt-mid uppercase mb-1">
           {en.result.matchLabel}
         </p>
-        <h1 className="font-display text-4xl font-bold text-neutral-900 leading-tight">
+        <h1 className="font-display text-4xl font-bold text-apt-dark leading-tight">
           {neighbourhood.name}
         </h1>
-        <p className="font-display italic text-primary-500 text-lg mt-1">
+        <p className="font-display italic text-apt-terra text-lg mt-1">
           {neighbourhood.tagline}
         </p>
       </div>

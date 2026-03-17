@@ -1,4 +1,4 @@
-// File: C:\Repos\connect4\src\app\quiz\[step]\page.tsx
+// File: c:\Repos\connect4\src\app\quiz\[step]\page.tsx
 import * as entry from '../../../../../src/app/quiz/[step]/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

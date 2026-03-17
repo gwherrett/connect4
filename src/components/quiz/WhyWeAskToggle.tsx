@@ -23,7 +23,7 @@ export function WhyWeAskToggle({ copy }: WhyWeAskToggleProps) {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="text-primary-500 text-sm font-body hover:text-primary-700 transition-colors"
+        className="text-apt-terra text-sm font-body hover:text-apt-dark transition-colors"
         aria-expanded={open}
       >
         {open ? en.quiz.shared.whyWeAskOpen : en.quiz.shared.whyWeAskClosed}
@@ -33,7 +33,7 @@ export function WhyWeAskToggle({ copy }: WhyWeAskToggleProps) {
         aria-hidden={!open}
       >
         <div ref={contentRef} className="pt-2 pb-1">
-          <p className="text-sm font-body text-neutral-600">{copy}</p>
+          <p className="text-sm font-body text-apt-mid">{copy}</p>
         </div>
       </div>
     </div>

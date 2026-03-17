@@ -19,12 +19,12 @@ export default function ListingPage() {
   }
 
   const main = (
-    <div className="min-h-screen bg-neutral-50">
+    <div className="min-h-screen bg-apt-cream">
       <div className="max-w-lg mx-auto px-5 py-6">
         <button
           type="button"
           onClick={() => router.back()}
-          className="font-body text-sm text-neutral-500 hover:text-neutral-800 transition-colors mb-6 block"
+          className="font-body text-sm text-apt-mid hover:text-apt-dark transition-colors mb-6 block"
         >
           {en.listing.backLink}
         </button>
@@ -41,7 +41,7 @@ export default function ListingPage() {
   const side = (
     <div className="flex flex-col justify-between h-full px-10 py-12">
       <div>
-        <p className="font-body text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-3">
+        <p className="font-body text-xs font-semibold tracking-widest text-apt-mid uppercase mb-3">
           Your match
         </p>
         <h2 className="font-display text-3xl font-bold text-white leading-tight mb-6">
@@ -49,31 +49,31 @@ export default function ListingPage() {
         </h2>
 
         <div className="space-y-4">
-          <div className="bg-neutral-800 rounded-lg px-5 py-4">
-            <p className="font-body text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-1">
+          <div className="bg-apt-dark rounded-lg px-5 py-4">
+            <p className="font-body text-xs font-semibold tracking-widest text-apt-mid uppercase mb-1">
               Listing
             </p>
-            <p className="font-body text-sm font-semibold text-white">
+            <p className="font-body text-sm font-semibold text-apt-cream">
               ${selectedListing.price.toLocaleString('en-CA')}/month · {selectedListing.bedroomCount} bed
             </p>
-            <p className="font-body text-xs text-neutral-400 mt-0.5">
+            <p className="font-body text-xs text-apt-mid mt-0.5">
               {selectedListing.headline}
             </p>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-neutral-700 pt-8">
-        <p className="font-body text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-3">
+      <div className="border-t border-apt-mid pt-8">
+        <p className="font-body text-xs font-semibold tracking-widest text-apt-mid uppercase mb-3">
           Before you reply
         </p>
-        <p className="font-body text-sm text-neutral-300 leading-relaxed mb-4">
+        <p className="font-body text-sm text-apt-cream leading-relaxed mb-4">
           Listings priced below market, available immediately, described as renovated — that combination is the most common pattern in rental scams targeting newcomers in Vancouver. The next step is usually a deposit request before you&apos;ve seen the place.
         </p>
         <button
           type="button"
           onClick={() => setScamOpen(true)}
-          className="font-body text-sm font-semibold text-primary-400 hover:text-primary-300 transition-colors"
+          className="font-body text-sm font-semibold text-apt-lime hover:text-apt-cream transition-colors"
         >
           Check this listing for red flags →
         </button>

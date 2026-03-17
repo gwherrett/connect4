@@ -85,30 +85,30 @@ export function SaveBottomSheet({ isOpen, onClose }: SaveBottomSheetProps) {
         aria-label={en.save.ariaLabel}
         ref={panelRef}
         className={[
-          'fixed inset-x-0 bottom-0 bg-white rounded-t-2xl shadow-lg z-40 p-6',
+          'fixed inset-x-0 bottom-0 bg-apt-cream rounded-t-2xl shadow-lg z-40 p-6',
           'transition-transform duration-300 ease-out',
           isOpen ? 'translate-y-0' : 'translate-y-full',
         ].join(' ')}
         style={{ maxHeight: '60vh', overflowY: 'auto' }}
       >
         {/* Handle bar */}
-        <div className="w-10 h-1 bg-neutral-200 rounded-full mx-auto mb-5" />
+        <div className="w-10 h-1 bg-apt-mid/20 rounded-full mx-auto mb-5" />
 
         {/* Close button */}
         <button
           type="button"
           onClick={onClose}
-          className="absolute top-4 right-4 text-neutral-400 hover:text-neutral-700 transition-colors"
+          className="absolute top-4 right-4 text-apt-mid hover:text-apt-dark transition-colors"
           aria-label={en.save.closeAriaLabel}
         >
           <X size={20} />
         </button>
 
         {/* Content */}
-        <h2 className="font-display text-xl font-bold text-neutral-900 mb-2">
+        <h2 className="font-display text-xl font-bold text-apt-dark mb-2">
           {en.save.headline}
         </h2>
-        <p className="font-body text-sm text-neutral-600 mb-5">
+        <p className="font-body text-sm text-apt-mid mb-5">
           {en.save.body}
         </p>
 
@@ -123,7 +123,7 @@ export function SaveBottomSheet({ isOpen, onClose }: SaveBottomSheetProps) {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder={en.save.emailPlaceholder}
-              className="w-full px-3 py-2.5 rounded-md border border-neutral-200 text-sm font-body focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500"
+              className="w-full px-3 py-2.5 rounded-md border border-apt-mid/20 text-sm font-body focus:outline-none focus:border-apt-terra focus:ring-1 focus:ring-apt-terra"
               required
             />
             <Button variant="primary" fullWidth type="submit">
@@ -132,7 +132,7 @@ export function SaveBottomSheet({ isOpen, onClose }: SaveBottomSheetProps) {
           </form>
         )}
 
-        <p className="font-body text-xs text-neutral-400 text-center mt-4">
+        <p className="font-body text-xs text-apt-mid text-center mt-4">
           {en.save.privacyNote}
         </p>
       </div>

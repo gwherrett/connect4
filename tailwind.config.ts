@@ -9,32 +9,28 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: {
-          50:  '#fdf6ee',
-          100: '#f5e8d0',
-          500: '#c87800',
-          700: '#8a5200',
-        },
-        neutral: {
-          50:  '#f5f2ed',
-          100: '#ede8e1',
-          200: '#d8d0c5',
-          400: '#a09080',
-          600: '#6b5f52',
-          900: '#1a1a1a',
+        apt: {
+          lime:         '#A9B743',
+          terra:        '#7A3E28',
+          dark:         '#2A2318',
+          cream:        '#FAF7F0',
+          mid:          '#5B5348',
+          'lime-tint':  '#F4F8E8',
+          'terra-tint': '#F4E8E0',
         },
         success: { 500: '#3a7d44' },
         error:   { 500: '#c0392b' },
       },
       fontFamily: {
-        display: ['Palatino Linotype', 'Palatino', 'Book Antiqua', 'Georgia', 'serif'],
-        body:    ['var(--font-source-sans)', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        display: ['var(--font-lora)', 'Georgia', 'serif'],
+        body:    ['var(--font-figtree)', 'system-ui', 'sans-serif'],
         mono:    ['JetBrains Mono', 'Courier New', 'monospace'],
       },
       borderRadius: {
-        sm: '6px',
-        md: '10px',
-        lg: '16px',
+        sm:  '6px',
+        md:  '10px',
+        lg:  '16px',
+        btn: '0.375rem',
       },
       boxShadow: {
         sm: '0 1px 3px rgba(0,0,0,0.08)',

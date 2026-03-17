@@ -30,9 +30,9 @@ export function EscapeHatch({ active, onActivate, value, onChange }: EscapeHatch
       onClick={onActivate}
       className="
         w-full mt-2 py-3 px-4 rounded-md
-        border border-dashed border-neutral-300
-        text-neutral-400 text-sm font-body
-        hover:border-neutral-400 hover:text-neutral-600
+        border border-dashed border-apt-mid/40
+        text-apt-mid text-sm font-body
+        hover:border-apt-mid hover:text-apt-dark
         transition-colors duration-150 text-left
       "
     >

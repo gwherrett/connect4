@@ -19,11 +19,11 @@ export function QuizQuestion({
   return (
     <div className="flex flex-col gap-5">
       <div>
-        <h2 className="font-display text-2xl font-bold text-neutral-900 leading-snug">
+        <h2 className="font-display text-2xl font-bold text-apt-dark leading-snug">
           {headline}
         </h2>
         {subCopy && (
-          <p className="mt-1 text-sm font-body text-neutral-600 italic">{subCopy}</p>
+          <p className="mt-1 text-sm font-body text-apt-mid italic">{subCopy}</p>
         )}
         {showWhyWeAsk && whyWeAsk && (
           <WhyWeAskToggle copy={whyWeAsk} />

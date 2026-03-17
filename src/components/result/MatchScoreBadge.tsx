@@ -4,7 +4,7 @@ interface MatchScoreBadgeProps {
 
 export function MatchScoreBadge({ score }: MatchScoreBadgeProps) {
   return (
-    <p className="font-mono text-3xl text-neutral-900">
+    <p className="font-mono text-3xl text-apt-dark">
       {score}%
     </p>
   )

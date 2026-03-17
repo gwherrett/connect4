@@ -90,21 +90,21 @@ export function ScamShieldModal({ isOpen, onClose, listing }: ScamShieldModalPro
       <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center pointer-events-none">
         <div
           ref={panelRef}
-          className="bg-white rounded-t-2xl sm:rounded-2xl max-w-md w-full mx-auto p-6 max-h-[90vh] overflow-y-auto pointer-events-auto"
+          className="bg-apt-cream rounded-t-2xl sm:rounded-2xl max-w-md w-full mx-auto p-6 max-h-[90vh] overflow-y-auto pointer-events-auto"
         >
           {/* Warning icon + header */}
           <div className="flex flex-col items-center text-center mb-5">
             <AlertTriangle size={36} className="text-error-500 mb-3" />
-            <h2 className="font-display text-xl font-bold text-neutral-900">
+            <h2 className="font-display text-xl font-bold text-apt-dark">
               {en.scamShield.header}
             </h2>
           </div>
 
           {/* Body paragraphs */}
           <div className="space-y-3 mb-5">
-            <p className="font-body text-sm text-neutral-700">{en.scamShield.body1}</p>
-            <p className="font-body text-sm text-neutral-700">{en.scamShield.body2}</p>
-            <p className="font-body text-sm text-neutral-700">{en.scamShield.body3}</p>
+            <p className="font-body text-sm text-apt-dark">{en.scamShield.body1}</p>
+            <p className="font-body text-sm text-apt-dark">{en.scamShield.body2}</p>
+            <p className="font-body text-sm text-apt-dark">{en.scamShield.body3}</p>
           </div>
 
           {/* Named red flags */}
@@ -114,12 +114,12 @@ export function ScamShieldModal({ isOpen, onClose, listing }: ScamShieldModalPro
             ))}
           </ul>
 
-          <hr className="border-neutral-200 mb-5" />
+          <hr className="border-apt-mid/20 mb-5" />
 
           {/* Scam Shield pitch */}
           <div className="space-y-2 mb-5">
-            <p className="font-body text-sm text-neutral-700">{en.scamShield.pitch1}</p>
-            <p className="font-body text-sm text-neutral-700">{en.scamShield.pitch2}</p>
+            <p className="font-body text-sm text-apt-dark">{en.scamShield.pitch1}</p>
+            <p className="font-body text-sm text-apt-dark">{en.scamShield.pitch2}</p>
           </div>
 
           {/* Email form / confirmation */}
@@ -134,7 +134,7 @@ export function ScamShieldModal({ isOpen, onClose, listing }: ScamShieldModalPro
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder={en.scamShield.emailPlaceholder}
-                className="w-full px-3 py-2.5 rounded-md border border-neutral-200 text-sm font-body focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500"
+                className="w-full px-3 py-2.5 rounded-md border border-apt-mid/20 text-sm font-body focus:outline-none focus:border-apt-terra focus:ring-1 focus:ring-apt-terra"
                 required
               />
               <Button variant="primary" fullWidth type="submit">
@@ -147,7 +147,7 @@ export function ScamShieldModal({ isOpen, onClose, listing }: ScamShieldModalPro
           <button
             type="button"
             onClick={onClose}
-            className="block w-full text-center text-sm text-neutral-400 font-body mt-4 hover:text-neutral-600 transition-colors"
+            className="block w-full text-center text-sm text-apt-mid font-body mt-4 hover:text-apt-dark transition-colors"
           >
             {en.scamShield.dismiss}
           </button>

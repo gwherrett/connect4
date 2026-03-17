@@ -21,10 +21,10 @@ export function TextInput({
 }: TextInputProps) {
   return (
     <div className={`flex flex-col gap-1 ${className}`}>
-      <label className="text-sm font-body font-semibold text-neutral-900">
+      <label className="text-sm font-body font-semibold text-apt-dark">
         {label}
         {optional && (
-          <span className="ml-1 font-normal text-neutral-400">{optional}</span>
+          <span className="ml-1 font-normal text-apt-mid">{optional}</span>
         )}
       </label>
       <input
@@ -34,10 +34,10 @@ export function TextInput({
         placeholder={placeholder}
         onChange={(e) => onChange(e.target.value)}
         className="
-          w-full px-3 py-2.5 rounded-md border border-neutral-200
-          bg-white text-neutral-900 font-body text-sm
-          placeholder:text-neutral-400
-          focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500
+          w-full px-3 py-2.5 rounded-md border border-apt-mid/20
+          bg-apt-cream text-apt-dark font-body text-sm
+          placeholder:text-apt-mid
+          focus:outline-none focus:border-apt-terra focus:ring-1 focus:ring-apt-terra
           transition-colors duration-150
         "
       />

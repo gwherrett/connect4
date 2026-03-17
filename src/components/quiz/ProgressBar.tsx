@@ -20,7 +20,7 @@ export function ProgressBar({ currentStep }: ProgressBarProps) {
               key={pip}
               className={[
                 'w-2 h-2 rounded-sm transition-colors duration-200',
-                pip <= currentStep ? 'bg-primary-500' : 'bg-neutral-200',
+                pip <= currentStep ? 'bg-apt-terra' : 'bg-apt-mid/20',
               ].join(' ')}
               aria-hidden="true"
             />

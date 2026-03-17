@@ -74,8 +74,8 @@ const Q10_OPTS = toOptions(en.quiz.q10.options as Record<string, string>)
 
 function PhaseIntroCard({ text }: { text: string }) {
   return (
-    <div className="border-l-4 border-primary-500 bg-neutral-50 px-4 py-3 mb-6 rounded-sm">
-      <p className="font-body text-sm text-neutral-700">{text}</p>
+    <div className="border-l-[3px] border-apt-terra bg-apt-terra-tint px-4 py-3 mb-6 rounded-sm">
+      <p className="font-body text-sm text-apt-dark">{text}</p>
     </div>
   )
 }
@@ -313,7 +313,7 @@ export default function QuizStepPage() {
               />
               {state.culturalCommunity === 'yes' && (
                 <div className="mt-4">
-                  <label className="font-body text-sm font-semibold text-neutral-700 block mb-2">
+                  <label className="font-body text-sm font-semibold text-apt-dark block mb-2">
                     {en.quiz.q9.conditionalLabel}
                   </label>
                   <TextArea
@@ -406,7 +406,7 @@ export default function QuizStepPage() {
                   optional={en.quiz.q13.neighbourhoodOptional}
                 />
               </div>
-              <p className="font-body text-xs text-neutral-400 mt-3">
+              <p className="font-body text-xs text-apt-mid mt-3">
                 {en.quiz.q13.skipNote}
               </p>
             </QuizQuestion>

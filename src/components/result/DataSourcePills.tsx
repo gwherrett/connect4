@@ -12,7 +12,7 @@ export function DataSourcePills() {
       {sources.map((source) => (
         <span
           key={source}
-          className="font-mono text-xs border border-neutral-200 text-neutral-400 px-2 py-1 rounded-sm"
+          className="font-body text-xs bg-apt-lime-tint text-apt-terra font-semibold uppercase tracking-widest px-3 py-1 rounded-full"
         >
           {source}
         </span>
