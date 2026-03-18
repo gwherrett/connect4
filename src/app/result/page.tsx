@@ -125,12 +125,12 @@ export default function ResultPage() {
               {en.result.whatItsLike}
             </p>
             <p className="font-body text-sm text-neutral-700 leading-relaxed">{displayDesc}</p>
-            {isLong && !showFullDescription && (
+            {isLong && (
               <button
-                onClick={() => setShowFullDescription(true)}
+                onClick={() => setShowFullDescription(v => !v)}
                 className="text-xs text-neutral-400 hover:text-neutral-600 mt-1"
               >
-                Read more →
+                {showFullDescription ? 'Read less ↑' : 'Read more →'}
               </button>
             )}
           </div>

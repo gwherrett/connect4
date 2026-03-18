@@ -14,7 +14,7 @@ export function CommunityVoiceBlock({ quote }: CommunityVoiceBlockProps) {
     const text = parts[0].trim()
     const attribution = parts.slice(1).join(' — ').trim()
     return (
-      <div className="bg-white border-l-4 border-primary-500 px-4 py-3 rounded-sm">
+      <div className="border-l-4 border-primary-500 border border-neutral-200 px-4 py-3 rounded-sm">
         <p className="text-xs font-body font-semibold tracking-widest text-neutral-400 uppercase mb-3">
           {en.result.communityVoice}
         </p>
@@ -29,7 +29,7 @@ export function CommunityVoiceBlock({ quote }: CommunityVoiceBlockProps) {
   }
 
   return (
-    <div className="bg-white border-l-4 border-primary-500 px-4 py-3 rounded-sm">
+    <div className="border-l-4 border-primary-500 border border-neutral-200 px-4 py-3 rounded-sm">
       <p className="text-xs font-body font-semibold tracking-widest text-neutral-400 uppercase mb-3">
         {en.result.communityVoice}
       </p>
