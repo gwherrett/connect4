@@ -2,10 +2,12 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "Threshold",
-      "runtimeExecutable": "bash",
-      "runtimeArgs": ["/Users/thisisme/Desktop/ProductBC buildathon/connect4-geoff/.claude/start-dev.sh"],
-      "autoPort": true
+      "name": "apt-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 3000,
+      "autoPort": true,
+      "cwd": "/Users/thisisme/Desktop/ProductBC buildathon/connect4-geoff"
     }
   ]
 }

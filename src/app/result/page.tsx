@@ -135,7 +135,21 @@ export default function ResultPage() {
             )}
           </div>
 
-          {/* 8. CTA — right after description */}
+          {/* 8. Analogous comparison */}
+          {showAnalogous && analogousText && (
+            <div className="mb-6">
+              <AnalogousComparisonBlock text={analogousText} />
+            </div>
+          )}
+
+          {/* 9. Community voice quote */}
+          {matchedNeighbourhood.communityQuote && (
+            <div className="mb-6">
+              <CommunityVoiceBlock quote={matchedNeighbourhood.communityQuote} />
+            </div>
+          )}
+
+          {/* 10. CTA — just above "Also worth exploring" */}
           <div className="mb-6">
             <Button
               variant="primary"
@@ -145,20 +159,6 @@ export default function ResultPage() {
               {t('result.rentalEntry', { neighbourhood: matchedNeighbourhood.name })}
             </Button>
           </div>
-
-          {/* 9. Analogous comparison */}
-          {showAnalogous && analogousText && (
-            <div className="mb-6">
-              <AnalogousComparisonBlock text={analogousText} />
-            </div>
-          )}
-
-          {/* 10. Community voice quote */}
-          {matchedNeighbourhood.communityQuote && (
-            <div className="mb-6">
-              <CommunityVoiceBlock quote={matchedNeighbourhood.communityQuote} />
-            </div>
-          )}
 
           {/* 11. Divider */}
           <hr className="my-6 border-neutral-200" />
