@@ -34,7 +34,7 @@ export function QuizLayout({
       {/* Top bar: back button at far left, logo left-aligned with content column — same row */}
       <div className="relative w-full pt-5 pb-3">
         {/* Logo: content-column left edge */}
-        <div className="max-w-lg w-full mx-auto px-5">
+        <div className="max-w-lg md:max-w-xl w-full mx-auto px-5">
           <AptLogoHorizontal scheme="light" size="sm" />
         </div>
         {/* Back button: vertically centered on the logo row, pinned to left edge */}
@@ -51,13 +51,13 @@ export function QuizLayout({
       </div>
 
       {/* Progress pips, left-aligned with content */}
-      <div className="px-5 pb-3 max-w-lg w-full mx-auto">
+      <div className="px-5 pb-3 max-w-lg md:max-w-xl w-full mx-auto">
         <ProgressBar currentStep={pip} />
       </div>
 
       {/* Phase pill — full width of window, terracotta, text aligned with content column */}
       <div className="w-full bg-primary-400 py-1.5 mb-3">
-        <div className="max-w-lg w-full mx-auto px-5">
+        <div className="max-w-lg md:max-w-xl w-full mx-auto px-5">
           <span
             className="text-xs uppercase tracking-widest text-apt-cream"
             style={{ fontWeight: 800 }}
@@ -68,12 +68,12 @@ export function QuizLayout({
       </div>
 
       {/* Content */}
-      <div className="flex-1 px-5 py-4 max-w-lg w-full mx-auto">
+      <div className="flex-1 px-5 py-4 max-w-lg md:max-w-xl w-full mx-auto">
         {children}
       </div>
 
       {/* Why we ask + Continue button */}
-      <div className="px-5 pb-8 max-w-lg w-full mx-auto">
+      <div className="px-5 pb-8 max-w-lg md:max-w-xl w-full mx-auto">
         {whyWeAsk && (
           <div className="mb-4">
             <WhyWeAskToggle copy={whyWeAsk} />
