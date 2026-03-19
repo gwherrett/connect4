@@ -202,6 +202,23 @@ All 25 neighbourhoods are scored, sorted, and the top result is surfaced as the 
 
 Match signal pills on the results page derive from the same weights: attributes where the user's weight is ≥ 3 and the neighbourhood scores ≥ 7 appear as green "Where it matches" pills; the same threshold with a score ≤ 5 produces terracotta "Where it doesn't quite fit" pills.
 
+---
+
+## API Polish & Autocomplete Fix — March 2026
+
+> **Scope:** Small fixes following live API testing. No visual or layout changes.
+
+### Autocomplete suppressed (`src/components/ui/TextInput.tsx`)
+- Added `autoComplete="off"` to all text inputs
+- Prevents the browser password manager from prompting to save quiz field values, which was appearing as an unwanted popup over the results page
+
+### Environment variable documentation (`.env.example`)
+- Expanded comments for both API keys to clarify setup requirements:
+  - **Voyage AI:** A payment method must be added in the Voyage dashboard to unlock standard rate limits, even on the free tier. Without it, the 3 RPM rate limit causes API failures under normal quiz usage. The 200M free token allowance still applies after adding a card.
+  - **Anthropic:** A funded account with available credits is required for the Claude personalisation feature. The app falls back gracefully to static comparison text if the key is absent or the call fails.
+
+---
+
 ### Blended scoring — semantic layer (active)
 
 The API route at `src/app/api/match/route.ts` adds a semantic similarity layer using Voyage AI embeddings (`voyage-3`). It works as follows:
