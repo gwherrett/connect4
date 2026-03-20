@@ -284,10 +284,6 @@ export const en = {
 
 // ─── t() helper ──────────────────────────────────────────────────────────────
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-type NestedValue<T> = T extends Record<string, unknown>
-  ? { [K in keyof T]: NestedValue<T[K]> }
-  : T
 
 export function t(key: string, params?: Record<string, string>): string {
   const parts = key.split('.')

@@ -60,7 +60,7 @@ export default function ResultPage() {
   return (
     <>
       <div className="min-h-screen bg-[#FAF7F0]">
-        <div className="max-w-lg mx-auto px-5 py-8">
+        <div className="max-w-lg md:max-w-xl lg:max-w-2xl mx-auto px-5 md:px-8 py-8">
 
           {/* Logo */}
           <div className="mb-8">

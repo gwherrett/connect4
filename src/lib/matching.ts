@@ -297,9 +297,6 @@ export function computeDisplayScores(
            + applyRawBonuses(n, session),
   }))
 
-  // Theoretical max: every attribute at score 10 × its weight (no negatives)
-  // theoreticalMax unused — kept as reference: Object.values(weights).reduce((sum, w) => sum + Math.max(w, 0) * 10, 0)
-
   const maxRaw = Math.max(...rawScores.map((s) => s.score), 1)
   return Object.fromEntries(
     rawScores.map(({ id, score }) => [
@@ -329,8 +326,6 @@ export function computeTopMatches(
     }))
     .sort((a, b) => b.raw - a.raw)
 
-  // Theoretical max: every attribute at score 10 × its weight (no negatives)
-  // theoreticalMax unused — kept as reference: Object.values(weights).reduce((sum, w) => sum + Math.max(w, 0) * 10, 0)
   const maxRaw = scored.length > 0 ? Math.max(scored[0].raw, 1) : 1
   return scored.slice(0, n).map(({ neighbourhood, raw }) => ({
     neighbourhood,

@@ -53,8 +53,7 @@ export default function DevPage() {
   const [singleVal, setSingleVal] = useState<string | null>(null)
   const [singleEscape, setSingleEscape] = useState('')
   const [multiVal, setMultiVal] = useState<string[]>([])
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [multiEscape, setMultiEscape] = useState('')
+  const [cardVersion, setCardVersion]       = useState<'A' | 'B' | 'C'>('C')
   const [scamModalOpen, setScamModalOpen]   = useState(false)
   const [saveSheetOpen, setSaveSheetOpen]   = useState(false)
 
