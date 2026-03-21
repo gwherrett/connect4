@@ -1,7 +1,35 @@
 # Apt — Branch Changes Overview
-**Branch:** `apt-product-review`
+**Branch:** `apt-semantic-matching`
 **Base:** `28b15de8` (Data: expand neighbourhood dataset)
 **Date:** March 2026
+
+---
+
+## Semantic Matching & Personalisation — March 2026
+
+> **Scope:** API integration only. No visual or layout changes. Activates the Voyage AI semantic matching layer and adds Claude-generated personalised analogous comparison text to the results page.
+
+### Semantic matching — Voyage AI (`src/app/api/match/route.ts`)
+- Replaced OpenAI `text-embedding-3-small` with Voyage AI `voyage-3` as the embeddings provider
+- Removed the `openai` npm package dependency entirely; Voyage API called via plain `fetch` — no SDK needed
+- All 25 neighbourhood descriptions plus the user's free text are sent in a single batch request, replacing the previous approach of one API call per text input
+- Requires `VOYAGE_API_KEY` in `.env.local` to activate; falls back silently to structural-only scoring if the key is absent or the call fails
+
+### Personalised analogous comparison (`src/app/api/personalise/route.ts`) — new file
+- New API endpoint that generates a personalised "How it compares to what you know" paragraph using Claude (`claude-haiku-4-5`)
+- Receives: the user's Place Memory free text, the place they described (neighbourhood + city + country), and the matched neighbourhood's name and personality description
+- Returns 2–3 sentences in Apt's voice connecting what the user loved about their place to what they will find in their Vancouver match — grounded in the specific details they provided
+- Minimum description threshold: 30 characters. Descriptions below this return `null` and the static fallback is used
+- Requires `ANTHROPIC_API_KEY` in `.env.local`; returns `null` gracefully on any failure
+
+### Results page (`src/app/result/page.tsx`)
+- On mount, fires a call to `/api/personalise` if the user provided a meaningful Place Memory description
+- Dynamic text replaces the static analogous comparison when available; static text remains the fallback if the API returns `null` or fails
+- The call runs after the match is displayed — no added latency to the initial results render
+
+### Unicode curly quotes fix (`src/app/quiz/[step]/page.tsx`, `src/app/dev/page.tsx`)
+- Corrected literal `\u` escape sequences in JSX attribute strings that were rendering as plain text
+- JSX attribute strings do not process `\u` escapes at runtime; replaced with actual Unicode characters
 
 ---
 
@@ -174,13 +202,30 @@ All 25 neighbourhoods are scored, sorted, and the top result is surfaced as the 
 
 Match signal pills on the results page derive from the same weights: attributes where the user's weight is ≥ 3 and the neighbourhood scores ≥ 7 appear as green "Where it matches" pills; the same threshold with a score ≤ 5 produces terracotta "Where it doesn't quite fit" pills.
 
-### Blended scoring — semantic layer (scaffolded, not yet active)
+---
 
-The API route at `src/app/api/match/route.ts` adds a semantic similarity layer using OpenAI embeddings (`text-embedding-3-small`). When activated, it works as follows:
+## API Polish & Autocomplete Fix — March 2026
+
+> **Scope:** Small fixes following live API testing. No visual or layout changes.
+
+### Autocomplete suppressed (`src/components/ui/TextInput.tsx`)
+- Added `autoComplete="off"` to all text inputs
+- Prevents the browser password manager from prompting to save quiz field values, which was appearing as an unwanted popup over the results page
+
+### Environment variable documentation (`.env.example`)
+- Expanded comments for both API keys to clarify setup requirements:
+  - **Voyage AI:** A payment method must be added in the Voyage dashboard to unlock standard rate limits, even on the free tier. Without it, the 3 RPM rate limit causes API failures under normal quiz usage. The 200M free token allowance still applies after adding a card.
+  - **Anthropic:** A funded account with available credits is required for the Claude personalisation feature. The app falls back gracefully to static comparison text if the key is absent or the call fails.
+
+---
+
+### Blended scoring — semantic layer (active)
+
+The API route at `src/app/api/match/route.ts` adds a semantic similarity layer using Voyage AI embeddings (`voyage-3`). It works as follows:
 
 1. **User text is assembled** from the Place Memory step: the neighbourhood they love, the city, the country, and their free-text description — plus any cultural community text entered in step 9. This is the most expressive, unstructured signal the user provides.
 
-2. **Embeddings are generated** in parallel for the user's text and for all 25 neighbourhood `personalityDescription` fields (the editorial prose descriptions in `neighbourhoods.json`).
+2. **Embeddings are generated** in a single batch call for the user's text and all 25 neighbourhood `personalityDescription` fields (the editorial prose descriptions in `neighbourhoods.json`).
 
 3. **Cosine similarity** is computed between the user vector and each neighbourhood vector, producing a 0–100 semantic score per neighbourhood.
 
@@ -189,7 +234,7 @@ The API route at `src/app/api/match/route.ts` adds a semantic similarity layer u
    - Semantic score: **30% weight**
    - The blend rewards neighbourhoods that match both the user's stated preferences *and* the feel of a place they already love
 
-**To activate:** add `OPENAI_API_KEY=<key>` to `.env.local`. The UI and API wiring are already in place; the structural-only fallback remains active when no key is present.
+**To activate:** add `VOYAGE_API_KEY=<key>` to `.env.local`. The structural-only fallback remains active when no key is present or the call fails.
 
 ### Why this approach
 
