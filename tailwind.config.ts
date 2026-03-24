@@ -15,6 +15,11 @@ const config: Config = {
       boxShadow,
     },
   },
+  safelist: [
+    'md:max-w-xl',
+    'lg:max-w-2xl',
+    'md:px-8',
+  ],
   plugins: [],
 };
 
